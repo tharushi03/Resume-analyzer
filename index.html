@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ResumeAI - Smart Resume Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ResumeAI Analyzer</h1>
+            <p class="tagline">Upload your resume and get AI-powered feedback to improve your chances of landing interviews. Our AI analyzes keywords, structure, and content quality.</p>
+            <div class="ai-badge">
+                <i class="fas fa-robot"></i> Powered by Advanced AI
+            </div>
+        </header>
+        
+        <div class="main-app">
+            <div class="upload-section">
+                <h2 class="section-title"><i class="fas fa-file-upload"></i> Upload Resume</h2>
+                
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & Drop or Click to Upload</h3>
+                    <p>Supported formats: PDF, DOCX, TXT (Max size: 5MB)</p>
+                    <button class="btn" id="browseBtn">
+                        <i class="fas fa-folder-open"></i> Browse Files
+                    </button>
+                    <input type="file" id="resumeFile" class="file-input" accept=".pdf,.docx,.txt">
+                </div>
+                
+                <div class="file-info" id="fileInfo">
+                    <p><strong>Selected file:</strong> <span id="fileName"></span></p>
+                    <p><strong>File size:</strong> <span id="fileSize"></span></p>
+                </div>
+                
+                <div class="job-role">
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i> Target Job Role</h3>
+                    <select id="jobRole" class="btn" style="width:100%; padding:12px; background:#f8f9fa; color:#333;">
+                        <option value="software_engineer">Software Engineer</option>
+                        <option value="data_scientist">Data Scientist</option>
+                        <option value="product_manager">Product Manager</option>
+                        <option value="marketing">Marketing Specialist</option>
+                        <option value="ux_designer">UX Designer</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-analyze" id="analyzeBtn">
+                    <i class="fas fa-magic"></i> Analyze with AI
+                </button>
+                
+                <div class="loading" id="loadingIndicator">
+                    <i class="fas fa-spinner"></i>
+                    <p>AI is analyzing your resume. This may take a few seconds...</p>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 class="section-title"><i class="fas fa-chart-line"></i> AI Analysis Results</h2>
+                <p id="resultsIntro">Upload a resume to see AI-powered feedback and improvement suggestions.</p>
+                
+                <div id="aiResults" class="ai-results" style="display: none;">
+                    <div class="overall-score">
+                        <h3>Overall Resume Score</h3>
+                        <div class="score-value" id="overallScore">0</div>
+                        <p class="score-text" id="scoreText">Upload a resume to get your score</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="scoreBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-title">
+                            <span>Keyword Optimization</span>
+                            <span class="score" id="keywordScore">0/10</span>
+                        </div>
+                        <p>How well your resume matches keywords for the target job role.</p>
+                        <div class="keywords" id="keywordList">
+                            <!-- Keywords will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-title">
+                            <span>Content Quality</span>
+                            <span class="score" id="contentScore">0/10</span>
+                        </div>
+                        <p>Assessment of your resume's clarity, impact, and professionalism.</p>
+                        <div class="suggestions">
+                            <p><strong>AI Suggestions:</strong></p>
+                            <ul id="contentSuggestions">
+                                <!-- Suggestions will be inserted here by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-title">
+                            <span>Structure & Formatting</span>
+                            <span class="score" id="structureScore">0/10</span>
+                        </div>
+                        <p>Evaluation of your resume's organization, readability, and visual appeal.</p>
+                    </div>
+                    
+                    <div class="ai-insight">
+                        <h4><i class="fas fa-lightbulb"></i> AI Insight</h4>
+                        <p id="aiInsightText">Upload your resume to get personalized AI insights on how to improve it for your target job role.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>ResumeAI Analyzer | Demo AI Web Application | This is a simulation of AI-powered analysis</p>
+            <p>Note: This demo uses mock AI processing. In a real application, this would connect to AI APIs like OpenAI, Google Gemini, or Hugging Face.</p>
+        </footer>
+    </div>
+
+    <!-- MVC Architecture -->
+    <script src="config.js?v=1.0"></script>
+    <script src="ai-service.js?v=1.0"></script>
+    <script src="model.js?v=1.0"></script>
+    <script src="view.js?v=1.0"></script>
+    <script src="controller.js?v=1.0"></script>
+    <script src="script.js?v=1.0"></script>
+</body>
+</html>
